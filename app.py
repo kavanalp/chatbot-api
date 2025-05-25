@@ -11,9 +11,10 @@ ape = os.getenv("OPENAI_API_KEY")
 # ape  = sys.argv[1]
 # print(f"ape: {ape}")
 
-model="ft:gpt-4o-2024-08-06:personal::B3HrC6W4"
+
 
 client = OpenAI(api_key=ape)
+
 
 app = Flask(__name__)
 
@@ -29,7 +30,7 @@ def chat():
 
     try:
         response = client.chat.completions.create(
-            model=model,
+            model="ft:gpt-4o-2024-08-06:personal::B3HrC6W4",
             messages=[{"role": "user", "content": user_prompt}],
             temperature=0.7
         )
