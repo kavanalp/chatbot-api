@@ -1,15 +1,15 @@
 # app.py
 from flask import Flask, request, jsonify
 from openai import OpenAI
-
+import os
 import sys
 
-if len(sys.argv) < 2:
-    print("Usage: python app.py <id>")
-    sys.exit(1)
-
-ape  = sys.argv[1]
-print(f"ape: {ape}")
+# if len(sys.argv) < 2:
+#     print("Usage: python app.py <id>")
+#     sys.exit(1)
+ape = os.getenv("OPENAI_API_KEY")
+# ape  = sys.argv[1]
+# print(f"ape: {ape}")
 
 model="ft:gpt-4o-2024-08-06:personal::B3HrC6W4"
 
