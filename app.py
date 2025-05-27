@@ -7,13 +7,15 @@ import sys
 # if len(sys.argv) < 2:
 #     print("Usage: python app.py <id>")
 #     sys.exit(1)
-ape = os.getenv("OPENAI_API_KEY")
+api_key = os.getenv("OPENAI_API_KEY")
+model_id = os.getenv("OPENAI_API_MODEL")
+
 # ape  = sys.argv[1]
 # print(f"ape: {ape}")
 
 
 
-client = OpenAI(api_key=ape)
+client = OpenAI(api_key=api_key)
 
 
 app = Flask(__name__)
@@ -30,7 +32,7 @@ def chat():
 
     try:
         response = client.chat.completions.create(
-            model="ft:gpt-4o-2024-08-06:personal::B3HrC6W4",
+            model= model_id,
             messages=[{"role": "user", "content": user_prompt}],
             temperature=0.7
         )
